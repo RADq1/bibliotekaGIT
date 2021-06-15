@@ -11,7 +11,7 @@ public class Borrow {
 
     LocalDate dataWyp;
     LocalDate dataOdd;
-    LocalDate planowanaDataOdd; //TODO DODAC 3 DNI DO DATY WYPOZYCZENIA
+    LocalDate planowanaDataOdd;
 
     boolean czyOddane = false;
     int dniSpoznienia = 0;

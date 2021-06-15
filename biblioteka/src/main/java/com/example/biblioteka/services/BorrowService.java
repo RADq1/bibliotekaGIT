@@ -28,6 +28,13 @@ public class BorrowService {
     public void borrowBook(Long idBook, Long idUser){
         Book book = bookService.getBookById(idBook);
         User user = userService.getUserById(idUser);
+       /* sprawdzenie, czy książka jest dostępna, jeśli tak wykonaj poniższe czynności
+        if(book.getAvailable())
+        {
+            Borrow borrow = new Borrow(LocalDate.now(), LocalDate.now().plusDays(3), book, user);
+            borrowRepo.save(borrow);
+            bookService.changeStatusOfBook(book, false);
+        } */
         Borrow borrow = new Borrow(LocalDate.now(), LocalDate.now().plusDays(3), book, user);
         borrowRepo.save(borrow);
         bookService.changeStatusOfBook(book, false);
