@@ -19,19 +19,4 @@ public class BookController {
         this.bookRepo = bookRepo;
     }
 
-    @EventListener(ApplicationReadyEvent.class) //po uruchomieniu aplikacji wywolaj ponizsza funkcje
-    public void addBooksToDatabase(){
-        Book book1 = new Book("Harry potter i kamien filozoficzny", "J.K. Rowling", "Fantasy");
-        Book book2 = new Book("Harry potter i komnata tajemnic", "J.K. Rowling", "Fantasy");
-        Book book3 = new Book("Harry potter i komnata tajemnic", "J.K. Rowling", "Fantasy");
-        Book book4 = new Book("Harry potter i wiezien azkabanu", "J.K. Rowling", "Fantasy");
-
-        bookRepo.save(book1);
-        bookRepo.save(book2);
-        bookRepo.save(book3);
-        bookRepo.save(book4);
-
-
-    }
-
 }
