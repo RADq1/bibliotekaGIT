@@ -1,6 +1,7 @@
 package com.example.biblioteka.database;
 
 import com.example.biblioteka.model.Book;
+import com.example.biblioteka.model.User;
 import com.example.biblioteka.model.repo.BookRepo;
 import com.example.biblioteka.model.repo.BorrowRepo;
 import com.example.biblioteka.model.repo.UserRepo;
@@ -15,7 +16,6 @@ public class databaseInit {
     BookRepo bookRepo;
     BorrowRepo borrowRepo;
     UserRepo userRepo;
-
     @Autowired
     public databaseInit(BookRepo bookRepo, BorrowRepo borrowRepo, UserRepo userRepo) {
         this.bookRepo = bookRepo;
@@ -37,7 +37,10 @@ public class databaseInit {
         bookRepo.save(book4);
         bookRepo.save(book5);
         //users
-
+        User user1 = new User("1998radek","12345","1998radq@gmail.com");
+        User user2 = new User("radek1998","54321","1995radq@gmail.com");
+        userRepo.save(user1);
+        userRepo.save(user2);
         //borrows
 
 

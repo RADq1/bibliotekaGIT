@@ -1,9 +1,8 @@
 package com.example.biblioteka.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Book {
@@ -15,7 +14,10 @@ public class Book {
     String title;
     String author;
     String type;
-    Boolean isAvailable = true;
+    boolean isAvailable = true;
+
+    @OneToMany(mappedBy = "book")
+    List<Borrow> borrow = new ArrayList<>();
 
     public Book() {
     }
@@ -24,6 +26,14 @@ public class Book {
         this.title = title;
         this.author = author;
         this.type = type;
+    }
+
+    public List<Borrow> getBorrow() {
+        return borrow;
+    }
+
+    public void setBorrow(List<Borrow> borrow) {
+        this.borrow = borrow;
     }
 
     public Long getBookId() {
@@ -58,11 +68,11 @@ public class Book {
         this.type = type;
     }
 
-    public Boolean getAvailable() {
+    public boolean getAvailable() {
         return isAvailable;
     }
 
-    public void setAvailable(Boolean available) {
+    public void setAvailable(boolean available) {
         isAvailable = available;
     }
 }
