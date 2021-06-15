@@ -27,6 +27,12 @@ public class Book {
         this.author = author;
         this.type = type;
     }
+    public Book(String title, String author, String type, boolean isAvailable) {
+        this.title = title;
+        this.author = author;
+        this.type = type;
+        this.isAvailable = isAvailable;
+    }
 
     public List<Borrow> getBorrow() {
         return borrow;
