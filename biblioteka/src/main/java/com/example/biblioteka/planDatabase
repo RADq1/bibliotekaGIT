@@ -1,0 +1,14 @@
+TABELE:
+Książka - Id (PK), Tytuł, autor(imie,nazwisko), gatunek, czyDostepna
+Wypożyczenie - Id (PK), dataWyp, dataOdd, planowanaDataOdd, tytułKsiążki(FK), nazwaUżytkownika (FK),
+czyOddane, dniSpoznienia
+
+Użytkownik - Id (PK), nazwa, haslo, naliczoneKary
+
+
+RELACJE:
+UŻYTKOWNIK MOŻE WYPOŻYCZYC JEDNĄ LUB WIĘCEJ KSIĄŻEK
+JEDNA KSIĄŻKA MOŻE BYC PRZYPISANA DO JEDNEGO UZYTKOWNIKA
+
+UZYTKOWNIK MOZE WIELE RAZY WYPOZYCZAC
+WYPOZYCZENIE JEST PRZYDZIELONE DO JEDNEGO UZYTKOWNIKA
