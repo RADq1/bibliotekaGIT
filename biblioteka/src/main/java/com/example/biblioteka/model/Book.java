@@ -34,6 +34,14 @@ public class Book {
         this.isAvailable = isAvailable;
     }
 
+    public Book(Long bookId, String title, String author, String type, boolean isAvailable) {
+        this.bookId = bookId;
+        this.title = title;
+        this.author = author;
+        this.type = type;
+        this.isAvailable = isAvailable;
+    }
+
     public List<Borrow> getBorrow() {
         return borrow;
     }

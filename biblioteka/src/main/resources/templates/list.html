@@ -1,10 +1,10 @@
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <style>
         body{
-
+            text-align: center;
         }
         .navbar {
             overflow: hidden;
@@ -30,16 +30,48 @@
 
     </style>
     <meta charset="UTF-8">
-    <title>STRONA GLOWNA</title>
+    <title>List</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
 <body>
 <div class="navbar">
     <a href="../" >Strona główna</a>
-    <a href="list">Wypożycz książkę</a>
     <a href="history">Historia książki</a>
     <a href="./" >Cofnij</a>
 </div>
-<p>Biblioteka</p>
+
+<!--
+<p>Wyświetlenie książki stworzonej w kontrolerze</p>
+<p th:text="${book0.title}"></p>
+<p th:text="${book0.author}"></p>
+<br>
+
+<p>Wyświetlenie konkretnej książki z bazy danych</p>
+<p th:text="${book1.title}"></p>
+<p th:text="${book1.bookId}"></p>
+-->
+
+<p>Lista ksiazek: </p>
+<table bgcolor="silver" align="center">
+    <thead>
+    <tr>
+        <th> Id </th>
+        <th> Autor </th>
+        <th> Tytuł </th>
+        <th> Gatunek </th>
+       <th> Dostępność </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.bookId}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.type}"></td>
+        <td th:text="${book.getAvailable()}"></td>
+        <td><a th:href="@{'/list/'+ ${book.bookId}}"><button>Wypożycz</button></a></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

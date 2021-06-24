@@ -30,7 +30,7 @@
 
     </style>
     <meta charset="UTF-8">
-    <title>STRONA GLOWNA</title>
+    <title>Historia książki</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
 <body>
@@ -40,6 +40,25 @@
     <a href="history">Historia książki</a>
     <a href="./" >Cofnij</a>
 </div>
-<p>Biblioteka</p>
+<p>Wybierz książkę, której historię chcesz zobaczyć: </p>
+<table bgcolor="silver" align="center">
+    <thead>
+    <tr>
+        <th> Id </th>
+        <th> Autor </th>
+        <th> Tytuł </th>
+        <th> Gatunek </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.bookId}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.type}"></td>
+        <td><a th:href="@{'/history/'+ ${book.bookId}}"><button>Sprawdź</button></a></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
